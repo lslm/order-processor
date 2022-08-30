@@ -25,6 +25,7 @@ public class Main {
         OrderProcessor orderProcessor = new OrderProcessor();
 
         Stream<String> orders = ordersReader.getOrders();
+
         orders.skip(1).forEach((orderLine) -> {
             Order order = OrderAdapter.getOrder(orderLine);
             orderProcessor.process(order);

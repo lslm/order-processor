@@ -12,7 +12,8 @@ public class OrderProcessor {
             List.of(new EmailValidator(),
                     new ProductValidator(),
                     new NameValidator(),
-                    new QuantityValidator());
+                    new QuantityValidator(),
+                    new AvailableQuantityValidator());
 
     public void process(Order order) {
         OrderToProcess orderToProcess = new OrderToProcess(order);
@@ -23,7 +24,7 @@ public class OrderProcessor {
             return;
         }
 
-        OrderDB.decreaseQuantityForProduct1(order.getProductId(), order.getQuantity());
+        OrderDB.decreaseQuantityForProduct(order.getProductId(), order.getQuantity());
         System.out.println("Pedido recebido: " + order);
     }
 }

@@ -17,7 +17,7 @@ public class OrderDB {
         return availableQuantities.get(productId);
     }
 
-    public static void decreaseQuantityForProduct1(String productId, int quantity) {
+    public static void decreaseQuantityForProduct(String productId, int quantity) {
         availableQuantities.put(productId, availableQuantities.get(productId) - quantity);
     }
 }
